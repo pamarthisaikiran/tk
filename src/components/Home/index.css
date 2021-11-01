@@ -1,0 +1,41 @@
+.slick-slide img {
+  margin: auto;
+}
+.container {
+  padding: 40px;
+}
+.imgC {
+  width: 100%;
+}
+.ul-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.buttonClick {
+  border-width: 1px;
+  border-color: black;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12px;
+  margin-left: 5px;
+  margin-right: 5px;
+}

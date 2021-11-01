@@ -1,0 +1,52 @@
+.navCon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navhome {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+
+  color: #334155;
+}
+.navCart {
+  margin-left: 30px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  color: #f7931e;
+}
+.navButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 16px;
+
+  background: #f7931e;
+  border-radius: 2px;
+  border-width: 0px;
+  margin-left: 30px;
+}
+.navHead {
+  font-family: DM Sans;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 32px;
+  /* identical to box height, or 150% */
+
+  color: #f7931e;
+  margin-left: 20px;
+}
+.bgg {
+  background: #f8fafc;
+  height: 100px;
+}

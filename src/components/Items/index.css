@@ -1,0 +1,56 @@
+.imgUrl {
+  width: 160px;
+  height: 100px;
+  border-radius: 8px;
+}
+.name {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+}
+.cui {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+}
+.rating {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 10px;
+  margin-top: 18px;
+  margin-left: 10px;
+}
+.review {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  margin-top: 18px;
+  margin-left: 10px;
+}
+.star {
+  color: #ffcc00;
+  width: 12px;
+}
+.list {
+  display: flex;
+  align-items: center;
+  width: 300px;
+  height: 200px;
+  margin-left: 10px;
+}
+.con {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.cont1 {
+  margin-left: 5px;
+  height: 100px;
+}
+.link-item{
+    text-decoration: none;
+}

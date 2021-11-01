@@ -1,0 +1,32 @@
+.sortHeader {
+  display: flex;
+  flex-direction: column;
+  margin-left: 90px;
+  margin-right: 90px;
+}
+.sort {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.sorted {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.sort-by-icon {
+  font-size: 24px;
+  color: #475569;
+  margin-right: 6px;
+}
+.sort-by-select {
+  color: #475569;
+  background-color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  padding: 12px;
+  outline: none;
+  cursor: pointer;
+}

@@ -1,0 +1,76 @@
+.dish-image {
+  width: 255px;
+  height: 150px;
+  border-radius: 8px;
+}
+.dish-li {
+  display: flex;
+  margin-bottom: 20px;
+}
+.dish-star {
+  color: #ffcc00;
+  margin-right: 3px;
+  margin-bottom: 10px;
+}
+.dish-con {
+  width: 255px;
+  height: 100px;
+  margin-left: 20px;
+}
+.dish-name {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  color: #334155;
+}
+.dish-cost {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: #334155;
+}
+.dish-rating {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  color: #0a1f44;
+  margin-top: 8px;
+}
+.dish-button {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  color: #ffa412;
+  background: transparent;
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: #ffa412;
+  border-style: solid;
+}
+.countBut {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.minus {
+  border-width: 1px;
+  border-style: solid;
+  background-color: transparent;
+  color: #3e4c59;
+}
+.plus {
+  border-width: 1px;
+  border-style: solid;
+  background-color: transparent;
+  color: #3e4c59;
+}
+.count-para {
+  color: #475569;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-top: 15px;
+}

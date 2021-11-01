@@ -1,0 +1,29 @@
+.footer {
+  background-color: #0f172a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+.f-heading {
+  font-family: DM Sans;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 32px;
+  color: #ffffff;
+  text-align: center;
+}
+.f-para {
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  color: #ffffff;
+  text-align: center;
+}
+.icon {
+  color: #ffffff;
+  font-size: 40px;
+  margin-left: 20px;
+}
