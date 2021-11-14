@@ -41,6 +41,7 @@
   width: 300px;
   height: 200px;
   margin-left: 10px;
+  margin-bottom: 20px;
 }
 .con {
   display: flex;
@@ -51,6 +52,6 @@
   margin-left: 5px;
   height: 100px;
 }
-.link-item{
-    text-decoration: none;
+.link-item {
+  text-decoration: none;
 }

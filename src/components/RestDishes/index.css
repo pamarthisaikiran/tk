@@ -67,10 +67,17 @@
   border-style: solid;
   background-color: transparent;
   color: #3e4c59;
+  margin-right: 10px;
 }
 .count-para {
   color: #475569;
   margin-right: 5px;
   margin-left: 5px;
   margin-top: 15px;
+}
+.but {
+  background: #f7931e;
+  border-radius: 3px;
+  border-width: 0px;
+  color: #ffffff;
 }

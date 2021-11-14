@@ -39,3 +39,19 @@
   margin-left: 5px;
   margin-right: 5px;
 }
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+.input {
+  margin-left: 100px;
+  margin-bottom: 30px;
+  outline: none;
+}
+.input-search {
+  display: flex;
+  width: 100%;
+}

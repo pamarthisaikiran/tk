@@ -1,6 +1,7 @@
 import {Component} from 'react'
 import {Redirect, Link} from 'react-router-dom'
-import {BsChevronRight, BsChevronLeft} from 'react-icons/bs'
+import {BsChevronRight, BsChevronLeft, BsSearch} from 'react-icons/bs'
+import Loader from 'react-loader-spinner'
 
 import Cookies from 'js-cookie'
 import Slider from 'react-slick'
@@ -37,6 +38,7 @@ const apiStatusConstants = {
 
 class Home extends Component {
   state = {
+    apiStatus: apiStatusConstants.initial,
     carosalData: {},
     productsList: [],
     activePage: 1,
@@ -150,6 +152,9 @@ class Home extends Component {
   }) */
 
   renderProducts = async () => {
+    this.setState({
+      apiStatus: apiStatusConstants.inProgress,
+    })
     const {
       productsList,
       activePage,
@@ -186,6 +191,12 @@ class Home extends Component {
 
       this.setState({
         productsList: [...restData],
+        apiStatus: apiStatusConstants.success,
+      })
+    }
+    if (response.status === 400) {
+      this.setState({
+        apiStatus: apiStatusConstants.failure,
       })
     }
   }
@@ -194,14 +205,23 @@ class Home extends Component {
     this.setState({selectedSortByValue}, this.renderProducts)
   }
 
-  render() {
-    const jwtToken = Cookies.get('jwt_token')
-    if (jwtToken === undefined) {
-      return <Redirect to="/login" />
-    }
-    const {productsList, activePage, selectedSortByValue} = this.state
-    console.log(productsList)
+  onChangeSearch = event => {
+    this.setState({
+      searchInput: event.target.value,
+    })
+  }
 
+  onSearch = () => {
+    this.renderProducts()
+  }
+
+  renderHomeData = () => {
+    const {
+      productsList,
+      activePage,
+      selectedSortByValue,
+      searchInput,
+    } = this.state
     return (
       <div>
         <div>
@@ -217,6 +237,25 @@ class Home extends Component {
             changeSortby={this.changeSortby}
           />
 
+          <div className="input-search">
+            <input
+              value={searchInput}
+              onChange={this.onChangeSearch}
+              type="search"
+              className="input"
+              placeholder="search"
+            />
+            <div className="search-icon-container">
+              <button
+                onClick={this.onSearch}
+                testid="searchButton"
+                className="search-button"
+              >
+                <BsSearch className="search-icon" />
+              </button>
+            </div>
+          </div>
+
           <ul className="ul-list">
             {productsList.map(each => (
               <Items eachDetails={each} key={each.id} />
@@ -230,8 +269,9 @@ class Home extends Component {
             <BsChevronLeft />{' '}
           </button>
           <div className="count">
-            <p>{activePage} </p>
-            <p> of 4</p>
+            <p>
+              <span testid="active-page-number">{activePage}</span> of 4
+            </p>
           </div>
           <button onClick={this.OnIncrement} className="buttonClick">
             {' '}
@@ -243,6 +283,64 @@ class Home extends Component {
         </div>
       </div>
     )
+  }
+
+  renderFailureView = () => (
+    <div className="products-error-view-container">
+      <img
+        src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
+        alt="failure view"
+        className="failure"
+      />
+      <h1 className="failure-text">Oops! Something Went Wrong</h1>
+      <p className="failure-description">
+        We cannot seem to find the page you are looking for
+      </p>
+
+      <Link to="/jobs" className="link">
+        <button className="nav-button">Retry</button>
+      </Link>
+    </div>
+  )
+
+  renderFailureViewButton = () => (
+    <div>
+      <Link to="/">
+        <button className="nav-button">Retry</button>
+      </Link>
+    </div>
+  )
+
+  renderLoadingView = () => (
+    <div className="loader-container" testid="loader">
+      <Loader type="TailSpin" color="#f7931e" height="50" width="50" />
+    </div>
+  )
+
+  renderAllrestData = () => {
+    const {apiStatus} = this.state
+
+    switch (apiStatus) {
+      case apiStatusConstants.success:
+        return this.renderHomeData()
+      case apiStatusConstants.failure:
+        return this.renderFailureViewButton()
+      case apiStatusConstants.inProgress:
+        return this.renderLoadingView()
+      default:
+        return null
+    }
+  }
+
+  render() {
+    const jwtToken = Cookies.get('jwt_token')
+    if (jwtToken === undefined) {
+      return <Redirect to="/login" />
+    }
+    const {productsList, activePage, selectedSortByValue} = this.state
+    console.log(productsList)
+
+    return <div>{this.renderAllrestData()}</div>
   }
 }
 

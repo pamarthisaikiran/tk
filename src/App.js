@@ -5,6 +5,8 @@ import Home from './components/Home'
 
 import ProtectedRoute from './components/ProtectedRoute'
 import SelectedRestarent from './components/SelectedRestarent'
+import Cart from './components/Cart'
+import NotFound from './components/NotFound'
 import './App.css'
 
 const sortByOptions = [
@@ -25,6 +27,9 @@ const App = () => (
     <Route exact path="/login" component={LoginForm} />
     <ProtectedRoute exact path="/" component={Home} />
     <ProtectedRoute exact path="/rest/:id" component={SelectedRestarent} />
+    <ProtectedRoute exact path="/cart" component={Cart} />
+    <Route path="/not-found" component={NotFound} />
+    <Redirect to="not-found" />
   </Switch>
 )
 

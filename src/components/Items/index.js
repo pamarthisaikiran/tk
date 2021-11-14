@@ -24,7 +24,9 @@ const Items = props => {
           <img className="imgUrl" alt={name} src={imageUrl} />
         </div>
         <div className="cont1">
-          <h1 className="name">{name}</h1>
+          <h1 testid="restaurant-item" className="name">
+            {name}
+          </h1>
           <p className="cui">{cuisine}</p>
           <div className="con">
             <BsFillStarFill className="star" />

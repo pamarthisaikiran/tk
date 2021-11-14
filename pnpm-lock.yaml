@@ -11,6 +11,7 @@ dependencies:
   react-bootstrap: 2.0.0-rc.1_react-dom@17.0.1+react@17.0.1
   react-dom: 17.0.1_react@17.0.1
   react-icons: 4.3.1_react@17.0.1
+  react-loader-spinner: 4.0.0_react-dom@17.0.1+react@17.0.1
   react-router-dom: 5.3.0_react@17.0.1
   react-slick: 0.28.1_react-dom@17.0.1+react@17.0.1
   slick-carousel: 1.8.1
@@ -10495,6 +10496,17 @@ packages:
     dev: false
     resolution:
       integrity: sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
+  /react-loader-spinner/4.0.0_react-dom@17.0.1+react@17.0.1:
+    dependencies:
+      prop-types: 15.7.2
+      react: 17.0.1
+      react-dom: 17.0.1_react@17.0.1
+    dev: false
+    peerDependencies:
+      react: '*'
+      react-dom: '*'
+    resolution:
+      integrity: sha512-RU2vpEej6G4ECei0h3q6bgLU10of9Lw5O+4AwF/mtkrX5oY20Sh/AxoPJ7etbrs/7Q3u4jN5qwCwGLRKCHpk6g==
   /react-refresh/0.8.3:
     dev: true
     engines:
@@ -13190,6 +13202,7 @@ specifiers:
   react-bootstrap: 2.0.0-rc.1
   react-dom: 17.0.1
   react-icons: 4.3.1
+  react-loader-spinner: 4.0.0
   react-router-dom: 5.3.0
   react-scripts: 4.0.3
   react-slick: 0.28.1

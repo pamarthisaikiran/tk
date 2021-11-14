@@ -13,8 +13,9 @@
   font-style: normal;
   font-weight: 600;
   font-size: 16px;
-
-  color: #334155;
+  background-color: transparent;
+  color: #f7931e;
+  border-width: 0px;
 }
 .navCart {
   margin-left: 30px;
@@ -23,6 +24,8 @@
   font-weight: 600;
   font-size: 16px;
   color: #f7931e;
+  background-color: transparent;
+  border-width: 0px;
 }
 .navButton {
   display: flex;
@@ -49,4 +52,23 @@
 .bgg {
   background: #f8fafc;
   height: 100px;
+}
+.cont {
+  display: flex;
+  justify-content: space-between;
+}
+
+.colorNav {
+  margin-left: 30px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  color: #334155;
+  background-color: transparent;
+  border-width: 0px;
+}
+.bttn {
+  background-color: transparent;
+  border-width: 0px;
 }
