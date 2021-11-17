@@ -144,7 +144,7 @@ class Home extends Component {
     )
   }
 
-  renderLoadingView = () => (
+  renderLoadingViewCau = () => (
     <div className="loader-container" testid="restaurants-offers-loader">
       <Loader type="TailSpin" color="#f7931e" height="50" width="50" />
     </div>
