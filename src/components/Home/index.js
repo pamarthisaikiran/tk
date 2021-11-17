@@ -325,7 +325,7 @@ class Home extends Component {
         We cannot seem to find the page you are looking for
       </p>
 
-      <Link to="/jobs" className="link">
+      <Link to="/" className="link">
         <button className="nav-button">Retry</button>
       </Link>
     </div>
