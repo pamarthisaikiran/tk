@@ -31,15 +31,15 @@ class Cart extends Component {
     )
   }
 
-  onDeleteItem = idC => {
+  onDeleteItem = id => {
     const {parsedDataState} = this.state
-    const filteredData = parsedDataState.filter(each => each.idC !== idC)
+    const filteredData = parsedDataState.filter(each => each.id !== id)
     this.setState({parsedDataState: filteredData})
   }
 
-  onIncrementPrice = idC => {
+  onIncrementPrice = id => {
     const {parsedDataState} = this.state
-    const filteredData = parsedDataState.filter(each => each.idC === idC)
+    const filteredData = parsedDataState.filter(each => each.id === id)
     this.setState({parsedDataState: filteredData})
   }
 
@@ -47,7 +47,7 @@ class Cart extends Component {
     const {parsedDataState, gTotal} = this.state
     if (parsedDataState !== null && parsedDataState.length > 0) {
       const total = parsedDataState.reduce(
-        (acc, tot) => acc + tot.costC * tot.countC,
+        (acc, tot) => acc + tot.cost * tot.count,
         0,
       )
 
@@ -57,11 +57,11 @@ class Cart extends Component {
     }
   }
 
-  onChangeTotal = costC => {
+  onChangeTotal = cost => {
     const {parsedDataState} = this.state
 
     this.setState(pre => ({
-      gTotal: pre.gTotal + costC,
+      gTotal: pre.gTotal + cost,
     }))
   }
 
@@ -72,11 +72,11 @@ class Cart extends Component {
     localStorage.removeItem('cartData')
   }
 
-  onChangeTotalMinus = costC => {
+  onChangeTotalMinus = cost => {
     const {parsedDataState} = this.state
 
     this.setState(pre => ({
-      gTotal: pre.gTotal - costC,
+      gTotal: pre.gTotal - cost,
     }))
   }
 
@@ -96,7 +96,7 @@ class Cart extends Component {
               {parsedDataState.map(each => (
                 <CartData
                   eachDetails={each}
-                  key={each.idC}
+                  key={each.id}
                   onDeleteItem={this.onDeleteItem}
                   onChangeTotal={this.onChangeTotal}
                   onChangeTotalMinus={this.onChangeTotalMinus}

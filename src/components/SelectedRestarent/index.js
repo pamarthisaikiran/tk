@@ -1,6 +1,7 @@
 import {Component} from 'react'
-
+import {Redirect, Link} from 'react-router-dom'
 import {BsFillStarFill} from 'react-icons/bs'
+import Loader from 'react-loader-spinner'
 
 import Cookies from 'js-cookie'
 
@@ -11,8 +12,16 @@ import RestDishes from '../RestDishes'
 
 import './index.css'
 
+const apiStatusConstants = {
+  initial: 'INITIAL',
+  success: 'SUCCESS',
+  failure: 'FAILURE',
+  inProgress: 'IN_PROGRESS',
+}
+
 class SelectedRestarent extends Component {
   state = {
+    apiStatus: apiStatusConstants.initial,
     RData: {},
     FItems: [],
   }
@@ -22,6 +31,10 @@ class SelectedRestarent extends Component {
   }
 
   getRestDetails = async () => {
+    this.setState({
+      apiStatus: apiStatusConstants.inProgress,
+    })
+
     const {RData, FItems} = this.state
     const {match} = this.props
     const {params} = match
@@ -54,9 +67,9 @@ class SelectedRestarent extends Component {
         reviewsCount: each.reviews_count,
       }))
       const FoodItems = data.food_items.map(each => ({
-        cost: each.cost,
+        costC: each.cost,
         foodType: each.food_type,
-        id: each.id,
+        idC: each.id,
         imageUrl2: each.image_url,
         name2: each.name,
         rating2: each.rating,
@@ -66,6 +79,12 @@ class SelectedRestarent extends Component {
       this.setState({
         RData: {...RestrentData},
         FItems: FoodItems,
+        apiStatus: apiStatusConstants.success,
+      })
+    }
+    if (response.status === 400) {
+      this.setState({
+        apiStatus: apiStatusConstants.failure,
       })
     }
   }
@@ -78,7 +97,7 @@ class SelectedRestarent extends Component {
     return (
       <div className="R-top-container">
         <div>
-          <img className="RImage" src={one.imageUrl} />
+          <img alt="restaurant" className="RImage" src={one.imageUrl} />
         </div>
         <div className="container0">
           <h1 className="head">{one.name}</h1>
@@ -112,7 +131,7 @@ class SelectedRestarent extends Component {
     )
   }
 
-  render() {
+  renderDishData = () => {
     const {RData, FItems} = this.state
 
     return (
@@ -132,6 +151,59 @@ class SelectedRestarent extends Component {
         </div>
       </div>
     )
+  }
+
+  renderFailureView = () => (
+    <div className="products-error-view-container">
+      <img
+        src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
+        alt="failure view"
+        className="failure"
+      />
+      <h1 className="failure-text">Oops! Something Went Wrong</h1>
+      <p className="failure-description">
+        We cannot seem to find the page you are looking for
+      </p>
+
+      <Link to="/jobs" className="link">
+        <button className="nav-button">Retry</button>
+      </Link>
+    </div>
+  )
+
+  renderFailureViewButton = () => (
+    <div>
+      <Link to="/">
+        <button className="nav-button">Retry</button>
+      </Link>
+    </div>
+  )
+
+  renderLoadingView = () => (
+    <div className="loader-container" testid="restaurant-details-loader">
+      <Loader type="TailSpin" color="#f7931e" height="50" width="50" />
+    </div>
+  )
+
+  renderAllrestData = () => {
+    const {apiStatus} = this.state
+
+    switch (apiStatus) {
+      case apiStatusConstants.success:
+        return this.renderDishData()
+      case apiStatusConstants.failure:
+        return this.renderFailureViewButton()
+      case apiStatusConstants.inProgress:
+        return this.renderLoadingView()
+      default:
+        return null
+    }
+  }
+
+  render() {
+    const {RData, FItems} = this.state
+
+    return <div>{this.renderAllrestData()}</div>
   }
 }
 

@@ -62,7 +62,7 @@ class LoginForm extends Component {
     return (
       <>
         <label className="labelUser" htmlFor="username">
-          Username
+          USERNAME
         </label>
 
         <input
@@ -81,7 +81,7 @@ class LoginForm extends Component {
     return (
       <>
         <label className="labelPass" htmlFor="password">
-          Password
+          PASSWORD
         </label>
         <input
           onChange={this.onChangePassword}
@@ -95,7 +95,7 @@ class LoginForm extends Component {
   }
 
   renderFromMed = () => {
-    <div className="card">
+    ;<div className="card">
       <div className="card2">
         <form className="form" onSubmit={this.onSubmitForm}>
           <img
@@ -120,7 +120,10 @@ class LoginForm extends Component {
     let k
     return (
       <div className="smallDev">
-        <img src="https://res.cloudinary.com/ddbhluguf/image/upload/v1634535030/Rectangle_1457_1px_duz6ai.png" />
+        <img
+          alt="website login"
+          src="https://res.cloudinary.com/ddbhluguf/image/upload/v1634535030/Rectangle_1457_1px_duz6ai.png"
+        />
         <form>
           <div className="con1">{this.renderInputUsername()} </div>
           <div className="con2"> {this.renderInputPassword()}</div>
@@ -143,11 +146,13 @@ class LoginForm extends Component {
             <div className="smallCard">
               <h1 className="loginHead1">Login</h1>
               <img
+                alt="website login"
                 className="smallImg"
                 src="https://res.cloudinary.com/ddbhluguf/image/upload/v1634535030/Rectangle_1457_1px_duz6ai.png"
               />
             </div>
             <img
+              alt="website logo"
               className="logo"
               src="https://res.cloudinary.com/ddbhluguf/image/upload/v1634469329/Vector_10x_ay1xq6.png"
             />
@@ -163,6 +168,7 @@ class LoginForm extends Component {
         </div>
         <img
           className="img1"
+          alt="website login"
           src="https://res.cloudinary.com/ddbhluguf/image/upload/v1634400021/Rectangle_1456_1x_ixsive.png"
         />
       </div>

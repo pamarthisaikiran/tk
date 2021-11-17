@@ -54,7 +54,10 @@ class Header extends Component {
           <Container className="cont">
             <Navbar.Brand href="#home">
               <div className="navCon">
-                <img src="https://res.cloudinary.com/ddbhluguf/image/upload/v1634469329/Vector_10x_ay1xq6.png" />
+                <img
+                  alt="website logo"
+                  src="https://res.cloudinary.com/ddbhluguf/image/upload/v1634469329/Vector_10x_ay1xq6.png"
+                />
                 <h1 className="navHead">Tasty Kitchen</h1>
               </div>
             </Navbar.Brand>

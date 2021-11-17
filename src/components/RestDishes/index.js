@@ -7,7 +7,7 @@ let localList = []
 class RestDishes extends Component {
   state = {
     isActive: false,
-    count: 1,
+    countC: 1,
     list: [],
     storelist1: {},
     isAdded: false,
@@ -25,7 +25,7 @@ class RestDishes extends Component {
   renderList = () => {
     const {count, list, storelist1, total} = this.state
     const {eachDetails} = this.props
-    const {name2, imageUrl2, rating2, id, foodType, cost} = eachDetails
+    const {name2, imageUrl2, rating2, idC, foodType, costC} = eachDetails
 
     if (list.length >= 1) {
       localList.push(...list)
@@ -42,42 +42,42 @@ class RestDishes extends Component {
   }
 
   onClickAdd = () => {
-    const {count, list} = this.state
+    const {countC, list} = this.state
     const {eachDetails} = this.props
-    const {name2, imageUrl2, rating2, id, foodType, cost} = eachDetails
+    const {name2, imageUrl2, rating2, idC, foodType, costC} = eachDetails
     this.setState(prevState => ({
       isActive: !prevState.isActive,
     }))
   }
 
   onClickMinus = id => {
-    const {isActive, count, storelist1, list} = this.state
+    const {isActive, countC, storelist1, list} = this.state
 
-    if (count === 1) {
+    if (countC === 1) {
       this.setState(prevState => ({
         isActive: !prevState.isActive,
       }))
     }
-    if (count > 1) {
+    if (countC > 1) {
       this.setState(prevState => ({
-        count: prevState.count - 1,
+        countC: prevState.countC - 1,
       }))
     }
   }
 
   onClickPlus = id => {
-    const {count, list, storelist1} = this.state
+    const {countC, list, storelist1} = this.state
     const {eachDetails} = this.props
-    const {name2, imageUrl2, rating2, foodType, cost} = eachDetails
+    const {name2, imageUrl2, rating2, idC, foodType, costC} = eachDetails
     this.setState(prevState => ({
-      count: prevState.count + 1,
+      countC: prevState.countC + 1,
     }))
 
     storelist1.map(each =>
       id === each.id
         ? this.setState(
             prevState => ({
-              count: prevState.count + 1,
+              countC: prevState.countC + 1,
             }),
             this.renderList,
           )
@@ -88,17 +88,17 @@ class RestDishes extends Component {
   changeText = () => {
     this.setState({isAdded: true})
 
-    const {count, list, total} = this.state
+    const {countC, list, total} = this.state
     const {eachDetails} = this.props
-    const {name2, imageUrl2, rating2, id, foodType, cost} = eachDetails
+    const {name2, imageUrl2, rating2, idC, foodType, costC} = eachDetails
 
     const newList = {
       imageUrl: imageUrl2,
       name: name2,
-      costC: cost,
-      countC: count,
-      idC: id,
-      qprice: cost * count,
+      cost: costC,
+      count: countC,
+      id: idC,
+      qprice: costC * countC,
     }
 
     this.setState(
@@ -110,16 +110,16 @@ class RestDishes extends Component {
   }
 
   render() {
-    const {isActive, count, isAdded} = this.state
+    const {isActive, countC, isAdded} = this.state
     const {eachDetails} = this.props
-    const {name2, imageUrl2, rating2, id, foodType, cost} = eachDetails
+    const {name2, imageUrl2, rating2, id, foodType, costC} = eachDetails
 
     return (
-      <li className="dish-li">
+      <li testid="foodItem" className="dish-li">
         <img className="dish-image" src={imageUrl2} />
         <div className="dish-con">
           <h1 className="dish-name">{name2}</h1>
-          <p className="dish-cost">₹ {cost}.00</p>
+          <p className="dish-cost">₹ {costC}.00</p>
           <p className="dish-rating">
             <span className="dish-star">
               <BsFillStarFill />
@@ -129,12 +129,22 @@ class RestDishes extends Component {
           <div>
             {isActive ? (
               <div className="countBut">
-                <button className="minus" onClick={this.onClickMinus}>
+                <button
+                  testid="decrement-count"
+                  className="minus"
+                  onClick={this.onClickMinus}
+                >
                   {' '}
                   -{' '}
                 </button>
-                <p className="count-para">{count}</p>
-                <button className="plus" onClick={this.onClickPlus}>
+                <p testid="active-count" className="count-para">
+                  {countC}
+                </p>
+                <button
+                  testid="increment-count"
+                  className="plus"
+                  onClick={this.onClickPlus}
+                >
                   +
                 </button>
                 {isAdded ? (

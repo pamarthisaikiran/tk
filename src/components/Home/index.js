@@ -128,20 +128,41 @@ class Home extends Component {
       <div className="container">
         <Slider {...settings}>
           <div>
-            <img className="imgC" src={one.imageUrl} />
+            <img alt="offer" className="imgC" src={one.imageUrl} />
           </div>
           <div>
-            <img className="imgC" src={two.imageUrl} />
+            <img alt="offer" className="imgC" src={two.imageUrl} />
           </div>
           <div>
-            <img className="imgC" src={three.imageUrl} />
+            <img alt="offer" className="imgC" src={three.imageUrl} />
           </div>
           <div>
-            <img className="imgC" src={four.imageUrl} />
+            <img alt="offer" className="imgC" src={four.imageUrl} />
           </div>
         </Slider>
       </div>
     )
+  }
+
+  renderLoadingView = () => (
+    <div className="loader-container" testid="restaurants-offers-loader">
+      <Loader type="TailSpin" color="#f7931e" height="50" width="50" />
+    </div>
+  )
+
+  renderCaurData = () => {
+    const {apiStatus} = this.state
+
+    switch (apiStatus) {
+      case apiStatusConstants.success:
+        return this.renderSider()
+      case apiStatusConstants.failure:
+        return this.renderFailureViewButton()
+      case apiStatusConstants.inProgress:
+        return this.renderLoadingViewCau()
+      default:
+        return null
+    }
   }
 
   /*  = data => ({
@@ -227,7 +248,7 @@ class Home extends Component {
         <div>
           <Header />
         </div>
-        <div className="sli">{this.renderSider()}</div>
+        <div className="sli">{this.renderCaurData()}</div>
 
         <div>
           <ProductsHeader
@@ -263,7 +284,11 @@ class Home extends Component {
         </div>
 
         <div className="buttons">
-          <button onClick={this.onDecrement} className="buttonClick">
+          <button
+            testid="pagination-left-button"
+            onClick={this.onDecrement}
+            className="buttonClick"
+          >
             {' '}
             <BsChevronLeft />{' '}
           </button>
@@ -272,7 +297,11 @@ class Home extends Component {
               <span testid="active-page-number">{activePage}</span> of 4
             </p>
           </div>
-          <button onClick={this.OnIncrement} className="buttonClick">
+          <button
+            testid="pagination-right-button"
+            onClick={this.OnIncrement}
+            className="buttonClick"
+          >
             {' '}
             <BsChevronRight />{' '}
           </button>
@@ -311,7 +340,7 @@ class Home extends Component {
   )
 
   renderLoadingView = () => (
-    <div className="loader-container" testid="loader">
+    <div className="loader-container" testid="restaurants-list-loader">
       <Loader type="TailSpin" color="#f7931e" height="50" width="50" />
     </div>
   )
