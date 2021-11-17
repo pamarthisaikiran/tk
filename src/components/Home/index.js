@@ -47,8 +47,8 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    this.renderProducts()
     this.getCarosalImgs()
+    this.renderProducts()
   }
 
   OnIncrement = () => {
@@ -227,8 +227,7 @@ class Home extends Component {
         <div>
           <Header />
         </div>
-
-        {this.renderSider()}
+        <div className="sli">{this.renderSider()}</div>
 
         <div>
           <ProductsHeader
@@ -340,7 +339,7 @@ class Home extends Component {
     const {productsList, activePage, selectedSortByValue} = this.state
     console.log(productsList)
 
-    return <div>{this.renderAllrestData()}</div>
+    return <div testid="restaurant-item">{this.renderAllrestData()}</div>
   }
 }
 

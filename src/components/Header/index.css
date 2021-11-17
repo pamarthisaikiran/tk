@@ -53,6 +53,9 @@
   background: #f8fafc;
   height: 100px;
 }
+.dwn {
+  background: #f8fafc;
+}
 .cont {
   display: flex;
   justify-content: space-between;

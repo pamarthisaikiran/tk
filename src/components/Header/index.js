@@ -50,7 +50,7 @@ class Header extends Component {
     const Navcolor = clr ? `navhome` : `colorNav`
     return (
       <>
-        <Navbar className="bgg" bg="light-blue-gray" expand="lg">
+        <Navbar className="bgg fixed-top" bg="light-blue-gray" expand="lg">
           <Container className="cont">
             <Navbar.Brand href="#home">
               <div className="navCon">
@@ -60,8 +60,8 @@ class Header extends Component {
             </Navbar.Brand>
 
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="me-auto">
+            <Navbar.Collapse id="basic-navbar-nav" className="dwn">
+              <Nav className="me-auto dwn">
                 <div className=" flex ">
                   <Nav.Link as={Link} to="/">
                     <button onClick={this.color} className="navhome">

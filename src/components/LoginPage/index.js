@@ -95,10 +95,13 @@ class LoginForm extends Component {
   }
 
   renderFromMed = () => {
-    ;<div className="card">
+    <div className="card">
       <div className="card2">
         <form className="form" onSubmit={this.onSubmitForm}>
-          <img src="https://res.cloudinary.com/ddbhluguf/image/upload/v1634469329/Vector_10x_ay1xq6.png" />
+          <img
+            alt="website logo"
+            src="https://res.cloudinary.com/ddbhluguf/image/upload/v1634469329/Vector_10x_ay1xq6.png"
+          />
           <h1 className="heading">Tasty Kitchens</h1>
           <h1 className="loginHead">Login</h1>
           <div className="con1">{this.renderInputUsername()} </div>
@@ -134,7 +137,7 @@ class LoginForm extends Component {
     }
     const {showSubmitError, errorMsg} = this.state
     return (
-      <div className="cardMain">
+      <div testid="rest" className="cardMain">
         <div className="card2">
           <form className="form" onSubmit={this.onSubmitForm}>
             <div className="smallCard">
