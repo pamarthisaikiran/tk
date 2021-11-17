@@ -91,7 +91,7 @@ class CartData extends Component {
           </button>
         </div>
         <p testid="active-count" className="costC">
-          ₹ {qprice}.00
+          ₹ {fprice}.00
         </p>
       </li>
     )
