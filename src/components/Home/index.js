@@ -157,7 +157,7 @@ class Home extends Component {
       case apiStatusConstants.success:
         return this.renderSider()
       case apiStatusConstants.failure:
-        return this.renderFailureViewButton()
+        return this.renderFailureView()
       case apiStatusConstants.inProgress:
         return this.renderLoadingViewCau()
       default:
@@ -352,7 +352,7 @@ class Home extends Component {
       case apiStatusConstants.success:
         return this.renderHomeData()
       case apiStatusConstants.failure:
-        return this.renderFailureViewButton()
+        return this.renderFailureView()
       case apiStatusConstants.inProgress:
         return this.renderLoadingView()
       default:
